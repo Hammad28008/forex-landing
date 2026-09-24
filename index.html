@@ -1,0 +1,1379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Forex Training From Zero — Free for 100 students</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    /* ============================================================
+       RESET & GLOBAL
+       ============================================================ */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: #0b0f1a;
+      color: #eef2ff;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 24px;
+      width: 100%;
+    }
+
+    /* ============================================================
+       BUTTONS
+       ============================================================ */
+    .btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #f7b731, #f5a623);
+      color: #0b0f1a;
+      font-weight: 700;
+      font-size: 1.1rem;
+      padding: 16px 40px;
+      border-radius: 60px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(247, 183, 49, 0.25);
+      letter-spacing: 0.3px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .btn::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transition: left 0.5s ease;
+    }
+
+    .btn:hover::after {
+      left: 100%;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 40px rgba(247, 183, 49, 0.4);
+      background: linear-gradient(135deg, #f5a623, #f7b731);
+    }
+
+    .btn:active {
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #f7b731;
+      color: #f7b731;
+      box-shadow: none;
+      padding: 14px 36px;
+    }
+
+    .btn-outline::after {
+      display: none;
+    }
+
+    .btn-outline:hover {
+      background: #f7b731;
+      color: #0b0f1a;
+      box-shadow: 0 8px 24px rgba(247, 183, 49, 0.2);
+      transform: translateY(-3px);
+    }
+
+    /* ============================================================
+       TYPOGRAPHY
+       ============================================================ */
+    h1, h2, h3, h4 {
+      font-weight: 700;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+    }
+
+    h1 {
+      font-size: 3.2rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+    }
+
+    h2 {
+      font-size: 2.2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    h3 {
+      font-size: 1.6rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #b0b8d0;
+    }
+
+    .highlight {
+      color: #f7b731;
+    }
+
+    .text-glow {
+      background: linear-gradient(135deg, #f7b731, #f5a623);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* ============================================================
+       HERO SECTION
+       ============================================================ */
+    .hero {
+      padding: 100px 0 60px;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -30%;
+      right: -10%;
+      width: 700px;
+      height: 700px;
+      background: radial-gradient(circle, rgba(247, 183, 49, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+      z-index: 0;
+      animation: pulseGlow 4s ease-in-out infinite;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -20%;
+      left: -10%;
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(52, 211, 153, 0.05) 0%, transparent 70%);
+      border-radius: 50%;
+      z-index: 0;
+      animation: pulseGlow 6s ease-in-out infinite reverse;
+    }
+
+    @keyframes pulseGlow {
+      0%, 100% { transform: scale(1); opacity: 0.6; }
+      50% { transform: scale(1.15); opacity: 1; }
+    }
+
+    .hero .container {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(247, 183, 49, 0.12);
+      border: 1px solid rgba(247, 183, 49, 0.3);
+      color: #f7b731;
+      font-weight: 600;
+      font-size: 0.9rem;
+      padding: 8px 20px;
+      border-radius: 60px;
+      margin-bottom: 24px;
+      letter-spacing: 0.5px;
+      animation: badgePulse 3s ease-in-out infinite;
+    }
+
+    @keyframes badgePulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(247, 183, 49, 0.2); }
+      50% { box-shadow: 0 0 0 8px rgba(247, 183, 49, 0); }
+    }
+
+    .hero h1 {
+      max-width: 900px;
+    }
+
+    .hero p {
+      max-width: 700px;
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+      color: #cbd5e1;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-bottom: 40px;
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 48px;
+      margin-top: 40px;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #f7b731;
+      line-height: 1.2;
+      animation: countGlow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes countGlow {
+      from { text-shadow: 0 0 10px rgba(247, 183, 49, 0.2); }
+      to { text-shadow: 0 0 20px rgba(247, 183, 49, 0.5); }
+    }
+
+    .stat-label {
+      font-size: 0.95rem;
+      color: #94a3b8;
+    }
+
+    /* ============================================================
+       ANIMATED CHART VISUAL (Hero Right Side)
+       ============================================================ */
+    .hero-visual {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 400px;
+    }
+
+    .chart-container {
+      position: relative;
+      width: 100%;
+      max-width: 480px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 20px;
+      padding: 24px 20px 20px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      animation: floatCard 5s ease-in-out infinite;
+    }
+
+    @keyframes floatCard {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
+    }
+
+    .chart-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    .chart-title {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .chart-badge {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #34d399;
+      background: rgba(52, 211, 153, 0.12);
+      padding: 4px 12px;
+      border-radius: 60px;
+      border: 1px solid rgba(52, 211, 153, 0.2);
+    }
+
+    .chart-svg-wrap {
+      width: 100%;
+      height: 180px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .chart-svg-wrap svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    /* Chart line animation */
+    .chart-line {
+      stroke-dasharray: 800;
+      stroke-dashoffset: 800;
+      animation: drawLine 3s ease forwards;
+    }
+
+    @keyframes drawLine {
+      to { stroke-dashoffset: 0; }
+    }
+
+    .chart-area {
+      opacity: 0;
+      animation: fadeArea 2s ease 1s forwards;
+    }
+
+    @keyframes fadeArea {
+      to { opacity: 0.15; }
+    }
+
+    .chart-dot {
+      animation: dotPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes dotPulse {
+      0%, 100% { r: 4; opacity: 1; }
+      50% { r: 6; opacity: 0.7; }
+    }
+
+    .chart-labels {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 8px;
+      font-size: 0.7rem;
+      color: #475569;
+      font-weight: 500;
+    }
+
+    /* Profit badge */
+    .profit-badge {
+      position: absolute;
+      top: -16px;
+      right: -16px;
+      background: linear-gradient(135deg, #34d399, #10b981);
+      color: #0b0f1a;
+      font-weight: 800;
+      font-size: 0.85rem;
+      padding: 10px 18px;
+      border-radius: 60px;
+      box-shadow: 0 8px 24px rgba(52, 211, 153, 0.3);
+      animation: profitPop 3s ease-in-out infinite;
+      z-index: 3;
+    }
+
+    @keyframes profitPop {
+      0%, 100% { transform: scale(1) rotate(0deg); }
+      50% { transform: scale(1.08) rotate(2deg); }
+    }
+
+    /* ============================================================
+       FLOATING CASH ANIMATION
+       ============================================================ */
+    .cash-float {
+      position: absolute;
+      font-size: 1.8rem;
+      opacity: 0;
+      pointer-events: none;
+      z-index: 1;
+      animation: cashRise 4s ease-in infinite;
+    }
+
+    .cash-float:nth-child(1) { left: 5%; top: 60%; animation-delay: 0s; }
+    .cash-float:nth-child(2) { left: 20%; top: 70%; animation-delay: 1s; }
+    .cash-float:nth-child(3) { left: 70%; top: 55%; animation-delay: 2s; }
+    .cash-float:nth-child(4) { left: 85%; top: 65%; animation-delay: 0.5s; }
+    .cash-float:nth-child(5) { left: 45%; top: 75%; animation-delay: 3s; }
+
+    @keyframes cashRise {
+      0% {
+        opacity: 0;
+        transform: translateY(0) scale(0.6) rotate(0deg);
+      }
+      20% {
+        opacity: 0.9;
+      }
+      80% {
+        opacity: 0.6;
+      }
+      100% {
+        opacity: 0;
+        transform: translateY(-140px) scale(1.1) rotate(20deg);
+      }
+    }
+
+    /* ============================================================
+       SECTIONS
+       ============================================================ */
+    section {
+      padding: 80px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      position: relative;
+    }
+
+    .section-label {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.05);
+      color: #94a3b8;
+      font-size: 0.8rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      padding: 6px 16px;
+      border-radius: 60px;
+      margin-bottom: 20px;
+    }
+
+    /* ============================================================
+       CURRICULUM GRID
+       ============================================================ */
+    .curriculum-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .curriculum-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 18px 22px;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      transition: background 0.25s ease, border-color 0.25s ease, transform 0.25s ease;
+    }
+
+    .curriculum-item:hover {
+      background: rgba(247, 183, 49, 0.05);
+      border-color: rgba(247, 183, 49, 0.2);
+      transform: translateX(6px);
+    }
+
+    .curriculum-item i {
+      color: #f7b731;
+      font-size: 1.1rem;
+      margin-top: 3px;
+      flex-shrink: 0;
+      transition: transform 0.2s ease;
+    }
+
+    .curriculum-item:hover i {
+      transform: scale(1.2);
+    }
+
+    .curriculum-item span {
+      font-size: 1rem;
+      color: #e2e8f0;
+      font-weight: 500;
+    }
+
+    /* ============================================================
+       STEPS
+       ============================================================ */
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
+    }
+
+    .step-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+      padding: 32px 24px;
+      position: relative;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .step-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(247, 183, 49, 0.3);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+    }
+
+    .step-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      background: rgba(247, 183, 49, 0.12);
+      border: 1px solid rgba(247, 183, 49, 0.3);
+      border-radius: 50%;
+      color: #f7b731;
+      font-weight: 800;
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    .step-card:hover .step-number {
+      transform: scale(1.1);
+      background: rgba(247, 183, 49, 0.25);
+    }
+
+    .step-card h4 {
+      font-size: 1.15rem;
+      margin-bottom: 10px;
+      color: #f1f5f9;
+    }
+
+    .step-card p {
+      font-size: 0.95rem;
+      color: #94a3b8;
+      line-height: 1.5;
+    }
+
+    /* ============================================================
+       WARNING BOX
+       ============================================================ */
+    .warning-box {
+      background: rgba(247, 183, 49, 0.07);
+      border-left: 4px solid #f7b731;
+      border-radius: 8px;
+      padding: 20px 24px;
+      margin: 32px 0;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .warning-box:hover {
+      box-shadow: 0 0 30px rgba(247, 183, 49, 0.08);
+    }
+
+    .warning-box p {
+      color: #f1f5f9;
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    .warning-box strong {
+      color: #f7b731;
+    }
+
+    /* ============================================================
+       WHY FREE
+       ============================================================ */
+    .why-free {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .why-free blockquote {
+      background: rgba(255, 255, 255, 0.03);
+      border-left: 4px solid #f7b731;
+      padding: 24px 28px;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      font-style: italic;
+      color: #e2e8f0;
+      margin: 24px 0;
+      transition: border-color 0.3s ease;
+    }
+
+    .why-free blockquote:hover {
+      border-color: #34d399;
+    }
+
+    /* ============================================================
+       INFOGRAPHIC STRIP
+       ============================================================ */
+    .infographic-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      margin-top: 48px;
+    }
+
+    .info-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 16px;
+      padding: 28px 20px;
+      text-align: center;
+      transition: transform 0.3s ease, border-color 0.3s ease, background 0.3s ease;
+    }
+
+    .info-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(247, 183, 49, 0.25);
+      background: rgba(247, 183, 49, 0.04);
+    }
+
+    .info-card .icon-wrap {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 1.4rem;
+      transition: transform 0.3s ease;
+    }
+
+    .info-card:hover .icon-wrap {
+      transform: scale(1.1) rotate(-5deg);
+    }
+
+    .info-card .icon-wrap.gold {
+      background: rgba(247, 183, 49, 0.12);
+      color: #f7b731;
+    }
+
+    .info-card .icon-wrap.green {
+      background: rgba(52, 211, 153, 0.12);
+      color: #34d399;
+    }
+
+    .info-card .icon-wrap.blue {
+      background: rgba(96, 165, 250, 0.12);
+      color: #60a5fa;
+    }
+
+    .info-card .icon-wrap.purple {
+      background: rgba(167, 139, 250, 0.12);
+      color: #a78bfa;
+    }
+
+    .info-card h4 {
+      font-size: 1rem;
+      color: #f1f5f9;
+      margin-bottom: 8px;
+    }
+
+    .info-card p {
+      font-size: 0.85rem;
+      color: #94a3b8;
+      line-height: 1.4;
+    }
+
+    /* ============================================================
+       FINAL CTA
+       ============================================================ */
+    .final-cta {
+      text-align: center;
+      padding: 100px 0;
+      background: radial-gradient(ellipse at center, rgba(247, 183, 49, 0.06) 0%, transparent 70%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .final-cta::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(247, 183, 49, 0.04) 0%, transparent 70%);
+      border-radius: 50%;
+      animation: pulseGlow 5s ease-in-out infinite;
+      pointer-events: none;
+    }
+
+    .final-cta .container {
+      position: relative;
+      z-index: 1;
+    }
+
+    .final-cta h2 {
+      font-size: 2.8rem;
+      margin-bottom: 16px;
+    }
+
+    .final-cta p {
+      max-width: 600px;
+      margin: 0 auto 40px;
+      font-size: 1.2rem;
+    }
+
+    .final-cta .btn {
+      font-size: 1.3rem;
+      padding: 20px 56px;
+      animation: ctaPulse 3s ease-in-out infinite;
+    }
+
+    @keyframes ctaPulse {
+      0%, 100% { box-shadow: 0 8px 24px rgba(247, 183, 49, 0.25); }
+      50% { box-shadow: 0 8px 48px rgba(247, 183, 49, 0.5); }
+    }
+
+    /* ============================================================
+       FOOTER DISCLAIMER
+       ============================================================ */
+    .footer-disclaimer {
+      padding: 40px 0 32px;
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      background: #070b14;
+    }
+
+    .footer-disclaimer p {
+      font-size: 0.8rem;
+      color: #64748b;
+      line-height: 1.7;
+      text-align: center;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .footer-disclaimer .small-note {
+      font-size: 0.75rem;
+      color: #475569;
+      margin-top: 12px;
+    }
+
+    /* ============================================================
+       SCROLL REVEAL ANIMATION
+       ============================================================ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ============================================================
+       RESPONSIVE BREAKPOINTS
+       ============================================================ */
+
+    /* Tablet & small desktop */
+    @media (max-width: 1024px) {
+      .hero .container {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .hero-visual {
+        min-height: 320px;
+        order: -1;
+      }
+
+      .chart-container {
+        max-width: 400px;
+      }
+
+      h1 {
+        font-size: 2.6rem;
+      }
+
+      .infographic-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .why-free {
+        gap: 40px;
+      }
+    }
+
+    /* Mobile landscape & small tablet */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      h2 {
+        font-size: 1.7rem;
+      }
+
+      .hero {
+        padding: 60px 0 50px;
+        min-height: auto;
+      }
+
+      .hero p {
+        font-size: 1rem;
+      }
+
+      .hero-cta {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .hero-cta .btn {
+        text-align: center;
+      }
+
+      .hero-stats {
+        gap: 28px;
+        justify-content: center;
+      }
+
+      .stat-number {
+        font-size: 1.6rem;
+      }
+
+      .stat-label {
+        font-size: 0.8rem;
+      }
+
+      section {
+        padding: 56px 0;
+      }
+
+      .why-free {
+        grid-template-columns: 1fr;
+        gap: 32px;
+      }
+
+      .final-cta h2 {
+        font-size: 2rem;
+      }
+
+      .final-cta .btn {
+        font-size: 1.1rem;
+        padding: 16px 36px;
+      }
+
+      .curriculum-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .steps-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .infographic-strip {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px;
+      }
+
+      .info-card {
+        padding: 20px 14px;
+      }
+
+      .chart-container {
+        max-width: 100%;
+        padding: 18px 14px 14px;
+      }
+
+      .chart-svg-wrap {
+        height: 140px;
+      }
+
+      .profit-badge {
+        top: -12px;
+        right: -8px;
+        font-size: 0.75rem;
+        padding: 8px 14px;
+      }
+
+      .hero-visual {
+        min-height: 260px;
+      }
+    }
+
+    /* Small mobile */
+    @media (max-width: 480px) {
+      .container {
+        padding: 0 16px;
+      }
+
+      h1 {
+        font-size: 1.8rem;
+      }
+
+      h2 {
+        font-size: 1.4rem;
+      }
+
+      .btn {
+        font-size: 1rem;
+        padding: 14px 28px;
+      }
+
+      .hero-badge {
+        font-size: 0.75rem;
+        padding: 6px 14px;
+      }
+
+      .hero-stats {
+        gap: 20px;
+      }
+
+      .stat-number {
+        font-size: 1.3rem;
+      }
+
+      .infographic-strip {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .info-card h4 {
+        font-size: 0.85rem;
+      }
+
+      .info-card p {
+        font-size: 0.75rem;
+      }
+
+      .info-card .icon-wrap {
+        width: 44px;
+        height: 44px;
+        font-size: 1.1rem;
+      }
+
+      .chart-svg-wrap {
+        height: 120px;
+      }
+
+      .chart-labels {
+        font-size: 0.6rem;
+      }
+
+      .final-cta .btn {
+        font-size: 0.95rem;
+        padding: 14px 28px;
+      }
+
+      .footer-disclaimer p {
+        font-size: 0.7rem;
+      }
+
+      .curriculum-item {
+        padding: 14px 16px;
+      }
+
+      .curriculum-item span {
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Reduced motion preference */
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+
+      .chart-line {
+        stroke-dashoffset: 0;
+      }
+
+      .chart-area {
+        opacity: 0.15;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ============================================================
+       HERO SECTION
+       ============================================================ -->
+  <header class="hero">
+    <div class="container">
+      <!-- LEFT: Content -->
+      <div class="hero-content">
+        <div class="hero-badge">
+          <i class="fas fa-graduation-cap" style="margin-right: 8px;"></i>
+          FIRST 100 STUDENTS — 100% FREE
+        </div>
+        <h1>
+          Want to learn <span class="text-glow">Forex Trading</span> from zero?
+        </h1>
+        <p>
+          You see people talking about Forex every day. Buy here. Sell there. Gold is moving. 
+          But when you open a chart yourself — everything looks confusing. 
+          Stop guessing. Start learning with a complete A to Z training.
+        </p>
+        <div class="hero-cta">
+          <a href="#claim" class="btn">
+            <i class="fas fa-arrow-right" style="margin-right: 8px;"></i>
+            Claim Your Free Spot
+          </a>
+          <a href="#curriculum" class="btn btn-outline">
+            See Full Curriculum
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number">100</span>
+            <span class="stat-label">Free positions</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">$150</span>
+            <span class="stat-label">Value after free spots</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">20+</span>
+            <span class="stat-label">Modules covered</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- RIGHT: Animated Chart Visual -->
+      <div class="hero-visual">
+        <!-- Floating cash emojis -->
+        <div class="cash-float">💵</div>
+        <div class="cash-float">💰</div>
+        <div class="cash-float">💵</div>
+        <div class="cash-float">💰</div>
+        <div class="cash-float">💵</div>
+
+        <!-- Chart Card -->
+        <div class="chart-container">
+          <div class="profit-badge">
+            <i class="fas fa-arrow-up" style="margin-right: 4px;"></i> +124.5%
+          </div>
+          <div class="chart-header">
+            <span class="chart-title">XAU/USD · H1</span>
+            <span class="chart-badge">LIVE</span>
+          </div>
+          <div class="chart-svg-wrap">
+            <svg viewBox="0 0 400 180" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Grid lines -->
+              <line x1="0" y1="45" x2="400" y2="45" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+              <line x1="0" y1="90" x2="400" y2="90" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+              <line x1="0" y1="135" x2="400" y2="135" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+
+              <!-- Area under the line -->
+              <path class="chart-area" 
+                    d="M0,150 L30,140 L60,145 L90,120 L120,125 L150,95 L180,100 L210,70 L240,75 L270,45 L300,50 L330,30 L360,35 L400,15 L400,180 L0,180 Z" 
+                    fill="#f7b731" opacity="0"/>
+              
+              <!-- Main chart line -->
+              <path class="chart-line" 
+                    d="M0,150 L30,140 L60,145 L90,120 L120,125 L150,95 L180,100 L210,70 L240,75 L270,45 L300,50 L330,30 L360,35 L400,15" 
+                    fill="none" stroke="#f7b731" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+              
+              <!-- Pulsing dot at the end -->
+              <circle class="chart-dot" cx="400" cy="15" r="4" fill="#f7b731" opacity="0.8"/>
+              <circle cx="400" cy="15" r="8" fill="#f7b731" opacity="0.15">
+                <animate attributeName="r" values="8;14;8" dur="2s" repeatCount="indefinite"/>
+                <animate attributeName="opacity" values="0.15;0.05;0.15" dur="2s" repeatCount="indefinite"/>
+              </circle>
+
+              <!-- Candlestick mini representation (decorative) -->
+              <rect x="50" y="135" width="6" height="18" rx="1" fill="#34d399" opacity="0.3"/>
+              <rect x="110" y="115" width="6" height="22" rx="1" fill="#f87171" opacity="0.3"/>
+              <rect x="170" y="90" width="6" height="20" rx="1" fill="#34d399" opacity="0.3"/>
+              <rect x="230" y="68" width="6" height="18" rx="1" fill="#f87171" opacity="0.3"/>
+              <rect x="290" y="42" width="6" height="16" rx="1" fill="#34d399" opacity="0.3"/>
+              <rect x="350" y="28" width="6" height="14" rx="1" fill="#34d399" opacity="0.3"/>
+            </svg>
+          </div>
+          <div class="chart-labels">
+            <span>09:00</span>
+            <span>12:00</span>
+            <span>15:00</span>
+            <span>18:00</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ============================================================
+       CURRICULUM SECTION
+       ============================================================ -->
+  <section id="curriculum" class="reveal">
+    <div class="container">
+      <span class="section-label">What you'll learn</span>
+      <h2>Complete Forex training <span class="highlight">from A to Z</span></h2>
+      <p style="max-width: 700px; margin-bottom: 8px;">
+        Designed for complete beginners. You'll learn the trading process step by step — 
+        from opening your account to understanding the market, placing a trade, and managing withdrawals.
+      </p>
+
+      <div class="curriculum-grid">
+        <div class="curriculum-item"><i class="fas fa-check-circle"></i><span>How Forex trading works</span></div>
+        <div class="curriculum-item"><i class="fas fa-check-circle"></i><span>Creating & setting up your trading account</span></div>
+        <div class="curriculum-item"><i class="fas fa-check-circle"></i><span>Understanding MT4/MT5 platforms</span></div>
+        <div class="curriculum-item"><i class="fas fa-check-circle"></i><span>Currency pairs & Gold trading basics</span></div>
+        <div class="curriculum-item"><i class="fas fa-check-circle"></i><span>Pips, lots, leverage & margin</span></div>
+        <div class="curriculum-item"><i class="fas fa-check-circle"></i><span>How to read Forex charts</span></div>
+        <div class="curriculum-item"><i class="fas fa-check-circle"></i><span>Candlestick basics</span></div>
+        <div class="curriculum-item"><i class="fas fa-check-circle"></i><span>Market trends & structure</span></div>
+        <div class="curriculum-item"><i class="fas fa-check-circle"></i><span>Support & resistance</span></div>
+        <div class="curriculum-item"><i class="fas fa-check-circle"></i><span>Technical analysis</span></div>
+        <div class="curriculum-item"><i class="fas fa-check-circle"></i><span>Finding potential trading opportunities</span></div>
+        <div class="curriculum-item"><i class="fas fa-check-circle"></i><span>Entry & exit techniques</span></div>
+        <div class="curriculum-item"><i class="fas fa-check-circle"></i><span>Stop Loss & Take Profit</span></div>
+        <div class="curriculum-item"><i class="fas fa-check-circle"></i><span>Risk management</span></div>
+        <div class="curriculum-item"><i class="fas fa-check-circle"></i><span>Trade execution</span></div>
+        <div class="curriculum-item"><i class="fas fa-check-circle"></i><span>Managing an active trade</span></div>
+        <div class="curriculum-item"><i class="fas fa-check-circle"></i><span>Trading psychology</span></div>
+        <div class="curriculum-item"><i class="fas fa-check-circle"></i><span>Common beginner mistakes</span></div>
+        <div class="curriculum-item"><i class="fas fa-check-circle"></i><span>Deposits & withdrawals</span></div>
+        <div class="curriculum-item"><i class="fas fa-check-circle"></i><span>Withdrawal to local payment methods</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       INFOGRAPHIC STRIP
+       ============================================================ -->
+  <section class="reveal">
+    <div class="container">
+      <span class="section-label">Why traders choose this</span>
+      <h2>Built for <span class="highlight">real beginners</span></h2>
+      <p style="max-width: 700px;">
+        Everything is explained in plain language — no confusing jargon, no hype.
+      </p>
+
+      <div class="infographic-strip">
+        <div class="info-card">
+          <div class="icon-wrap gold">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <h4>Step-by-Step Charts</h4>
+          <p>Learn to read candlesticks, trends, and market structure visually.</p>
+        </div>
+        <div class="info-card">
+          <div class="icon-wrap green">
+            <i class="fas fa-shield-alt"></i>
+          </div>
+          <h4>Risk Management</h4>
+          <p>Understand leverage, margin, and how to protect your capital.</p>
+        </div>
+        <div class="info-card">
+          <div class="icon-wrap blue">
+            <i class="fas fa-brain"></i>
+          </div>
+          <h4>Trading Psychology</h4>
+          <p>Master emotions and avoid the common mistakes that hurt beginners.</p>
+        </div>
+        <div class="info-card">
+          <div class="icon-wrap purple">
+            <i class="fas fa-wallet"></i>
+          </div>
+          <h4>Deposits & Withdrawals</h4>
+          <p>Learn how to fund your account and withdraw to local methods.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       STEPS SECTION
+       ============================================================ -->
+  <section class="reveal">
+    <div class="container">
+      <span class="section-label">How to get free access</span>
+      <h2>5 simple steps to <span class="highlight">claim your spot</span></h2>
+      <p style="max-width: 700px;">
+        There is no separate training fee for the first 100 eligible students. Just follow these steps.
+      </p>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">1</div>
+          <h4>Create your trading account</h4>
+          <p>Register through the provided broker link.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">2</div>
+          <h4>Complete verification</h4>
+          <p>Verify your account according to the broker's requirements.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">3</div>
+          <h4>Fund your account (optional)</h4>
+          <p>If you decide to trade, fund with an amount appropriate for your risk tolerance. Deposits may start around $50.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">4</div>
+          <h4>Send me a message</h4>
+          <p>Confirm your registration. Hide sensitive info in screenshots.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-number">5</div>
+          <h4>Receive full access</h4>
+          <p>Get the complete Forex training program instantly.</p>
+        </div>
+      </div>
+
+      <div class="warning-box">
+        <p>
+          <strong>Important:</strong> Your deposited money is <strong>trading capital, not a payment to me for the course</strong>. 
+          It remains inside your trading account and is used only if you choose to trade. 
+          Deposits, withdrawals, and processing times are subject to the broker's rules.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       WHY FREE SECTION
+       ============================================================ -->
+  <section class="reveal">
+    <div class="container">
+      <div class="why-free">
+        <div>
+          <span class="section-label">Why am I offering it free?</span>
+          <h2>Because knowledge <span class="highlight">stays with you</span></h2>
+          <p>
+            I want to build a community of traders who understand what they're doing — 
+            instead of blindly entering trades based on random signals, social media hype, or emotions.
+          </p>
+          <blockquote>
+            "I would rather teach you <strong>WHY</strong> a trade may make sense than simply tell you <strong>BUY NOW or SELL NOW.</strong>"
+          </blockquote>
+          <p>
+            Knowledge stays with you. That's why the first 100 students get the complete training free.
+          </p>
+        </div>
+        <div>
+          <div class="warning-box" style="margin: 0;">
+            <p style="font-weight: 600; color: #f7b731; margin-bottom: 12px;">
+              <i class="fas fa-exclamation-triangle" style="margin-right: 8px;"></i>
+              Profit is never guaranteed
+            </p>
+            <p>
+              Forex and leveraged trading can result in both profits and losses. 
+              Only trade with money you can afford to risk. The purpose of this training 
+              is not to promise quick money — it's to teach you how the market works so you 
+              can make more informed trading decisions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FINAL CTA
+       ============================================================ -->
+  <section id="claim" class="final-cta reveal">
+    <div class="container">
+      <span class="section-label">Only 100 free positions</span>
+      <h2>Ready to start your <span class="text-glow">Forex journey?</span></h2>
+      <p>
+        If you are completely new and don't even know where to begin — this is your starting point. 
+        Message me now to claim your free training position before the 100 spots are gone.
+      </p>
+      <a href="https://tawk.to/chat/6ab4debbd9ce6c3441cb7d89/1k398c36p" 
+         target="_blank" 
+         class="btn"
+         style="font-size: 1.3rem; padding: 20px 56px;">
+        <i class="fas fa-comment-dots" style="margin-right: 10px;"></i>
+        Message Me — Claim Free Spot
+      </a>
+      <p style="margin-top: 20px; font-size: 0.95rem; color: #64748b;">
+        <i class="fas fa-lock" style="margin-right: 6px;"></i>
+        Chat opens instantly. No payment required for training.
+      </p>
+    </div>
+  </section>
+
+  <!-- ============================================================
+       FOOTER DISCLAIMER
+       ============================================================ -->
+  <footer class="footer-disclaimer">
+    <div class="container">
+      <p>
+        <strong>Risk Disclaimer:</strong> Forex and leveraged trading involve a high level of risk and may not be suitable for all investors. 
+        The possibility exists that you could sustain a loss of some or all of your initial investment. 
+        You should not invest money that you cannot afford to lose. 
+        Past performance is not indicative of future results. 
+        The content provided in this training is for educational purposes only and does not constitute financial advice. 
+        Deposits, withdrawals, and trading conditions are subject to your broker's terms and conditions.
+      </p>
+      <p class="small-note">
+        &copy; 2025 Forex Training From Zero. All rights reserved. 
+        This site is not affiliated with any broker. Trading capital is held by your chosen broker.
+      </p>
+    </div>
+  </footer>
+
+  <!-- ============================================================
+       TAWK.TO CHAT WIDGET
+       ============================================================ -->
+  <!--Start of Tawk.to Script-->
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/6ab4debbd9ce6c3441cb7d89/1k398c36p';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+  </script>
+  <!--End of Tawk.to Script-->
+
+  <!-- ============================================================
+       SMOOTH SCROLL & SCROLL REVEAL
+       ============================================================ -->
+  <script>
+    // Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    // Scroll reveal with IntersectionObserver
+    const revealElements = document.querySelectorAll('.reveal');
+    
+    if ('IntersectionObserver' in window) {
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px'
+      });
+
+      revealElements.forEach(el => revealObserver.observe(el));
+    } else {
+      // Fallback for older browsers
+      revealElements.forEach(el => el.classList.add('visible'));
+    }
+  </script>
+
+</body>
+</html>
